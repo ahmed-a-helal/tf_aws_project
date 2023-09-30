@@ -32,5 +32,5 @@ resource "aws_egress_only_internet_gateway" "main" {
   }
 }
 resource "aws_eip" "nat_gateway" {
-  vpc = true
+  domain = "vpc"
 }

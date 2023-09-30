@@ -1,7 +1,6 @@
 resource "aws_launch_template" "workernode" {
   name          = "workernode-tf-iti-lab"
   instance_type = "t2.micro"
-  ebs_optimized = true
   image_id      = "ami-01342111f883d5e4e"
 
   monitoring {
@@ -13,6 +12,7 @@ resource "aws_launch_template" "workernode" {
   }
 
   tag_specifications {
+    resource_type = "instance"
     tags = {
       Name    = "workernode-tf-iti-lab"
       type    = "worker"
@@ -26,7 +26,6 @@ resource "aws_launch_template" "workernode" {
 resource "aws_launch_template" "bastion" {
   name          = "bastion-tf-iti-lab"
   instance_type = "t2.micro"
-  ebs_optimized = true
   image_id      = "ami-0410d74c821423ce6"
   monitoring {
     enabled = true
@@ -38,6 +37,7 @@ resource "aws_launch_template" "bastion" {
   }
 
   tag_specifications {
+    resource_type = "instance"
 
     tags = {
       Name    = "bastion-tf-iti-lab"
