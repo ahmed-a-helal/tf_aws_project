@@ -1,6 +1,6 @@
 
 resource "aws_internet_gateway" "main" {
-  
+
   vpc_id = aws_vpc.main.id
 
   tags = {
@@ -17,10 +17,10 @@ resource "aws_egress_only_internet_gateway" "main" {
   vpc_id = aws_vpc.main.id
 
   tags = {
-    Name    = "egress gw ${var.project_name}"
-    type    = "private"
-    project = var.project_name
-    creator = var.creator
+    Name        = "egress gw ${var.project_name}"
+    type        = "private"
+    project     = var.project_name
+    creator     = var.creator
     environment = var.environment
   }
 }
@@ -31,13 +31,13 @@ resource "aws_nat_gateway" "main" {
 
   allocation_id = aws_eip.nat_gateway[0].id
 
-  subnet_id     = aws_subnet.subnets[0].id
+  subnet_id = aws_subnet.subnets[0].id
 
   tags = {
-    Name    = "Nat_${var.project_name}"
-    type    = "private"
-    project = var.project_name
-    creator = var.creator
+    Name        = "Nat_${var.project_name}"
+    type        = "private"
+    project     = var.project_name
+    creator     = var.creator
     environment = var.environment
   }
 

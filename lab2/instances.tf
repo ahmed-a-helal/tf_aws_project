@@ -3,8 +3,8 @@ resource "aws_instance" "instances" {
 
   count = length(var.instancesPerAZ) * length(var.availability_zones)
 
-  subnet_id = var.instancesPerAZ[count.index % 2].public && module.networking.subnets[0].tags.type == "public" ?  module.networking.subnets[2*floor(count.index/length(var.instancesPerAZ))].id : module.networking.subnets[2*floor(count.index/length(var.instancesPerAZ))+1].id
-  
+  subnet_id = var.instancesPerAZ[count.index % 2].public && module.networking.subnets[0].tags.type == "public" ? module.networking.subnets[2 * floor(count.index / length(var.instancesPerAZ))].id : module.networking.subnets[2 * floor(count.index / length(var.instancesPerAZ)) + 1].id
+
   key_name = aws_key_pair.sshkey.id
 
   ami = var.instancesPerAZ[count.index % 2].ami

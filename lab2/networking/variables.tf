@@ -1,5 +1,5 @@
 variable "environment" {
-  type = string
+  type    = string
   default = "main"
 }
 variable "vpc_cidr" {
@@ -22,24 +22,24 @@ variable "creator" {
 }
 
 variable "ipv4_diff_between_vpc_and_subnets_subnetmask" {
-  type = number
+  type    = number
   default = 4
 }
 
 variable "ipv6_diff_between_vpc_and_subnets_subnetmask" {
-  type = number
+  type    = number
   default = 4
 }
 variable "enable_ipv6" {
-  type = bool
+  type    = bool
   default = false
 }
 variable "subnetstartcount" {
-  type = number
+  type    = number
   default = 1
 }
 
 variable "enable_natgateway" {
-  type = bool
+  type    = bool
   default = false
 }
