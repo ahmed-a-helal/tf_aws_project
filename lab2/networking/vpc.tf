@@ -11,4 +11,3 @@ resource "aws_vpc" "main" {
     creator = var.creator
   }
 }
-

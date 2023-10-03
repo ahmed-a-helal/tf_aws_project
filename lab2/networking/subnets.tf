@@ -16,7 +16,7 @@ resource "aws_subnet" "subnets" {
 
   tags = {
     Name    = count.index % 2 ==0 ? "public_${var.environment}_${var.project_name}" : "private_${var.environment}_${var.project_name}}"
-    type    = count.index % 2 ==0 ? "public_${var.environment}_${var.project_name}" : "private_${var.environment}_${var.project_name}"
+    type    = count.index % 2 ==0 ? "public" : "private"
     environment = var.environment
     project = var.project_name
     creator = var.creator

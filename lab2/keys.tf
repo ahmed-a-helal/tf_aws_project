@@ -1,13 +1,13 @@
 resource "tls_private_key" "sshkey" {
-  
+
   algorithm = "RSA"
 
-  rsa_bits  = 4096
+  rsa_bits = 4096
 
 }
 resource "aws_key_pair" "sshkey" {
-  
-  key_name   = var.project_name
+
+  key_name = var.project_name
 
   public_key = tls_private_key.sshkey.public_key_openssh
 
@@ -21,7 +21,7 @@ resource "aws_key_pair" "sshkey" {
     chmod 600 "./${var.environment}-${var.project_name}.pem"
     
     EOT
-  
+
   }
 
 }
