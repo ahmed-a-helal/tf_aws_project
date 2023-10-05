@@ -25,6 +25,7 @@ resource "aws_s3_bucket" "backend" {
 
 resource "aws_s3_bucket_versioning" "itilabs" {
   bucket = aws_s3_bucket.backend.id
+
   versioning_configuration {
     status = "Enabled"
   }
