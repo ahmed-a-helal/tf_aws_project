@@ -11,7 +11,7 @@ pipeline {
             }
         }
         
-        stage("Terraform"){
+        stage("aws infrastructure up/down"){
             steps{
                 withCredentials([[
                     $class: 'AmazonWebServicesCredentialsBinding',
