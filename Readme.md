@@ -16,4 +16,4 @@ This branch is a conitinuation of the previous branch (lab1)
    - aws credentials plugin 
    - docker-plugin
  - remote state file on s3 bucket 
-   - A lambda function triggers SES notification  Email
+   - A lambda function triggerring SES notification  Email
