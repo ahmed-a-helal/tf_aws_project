@@ -27,8 +27,12 @@ pipeline {
             }
         }
         stage ("Archive keys"){
-            staps{
-                archiveArtifacts artifacts: '*.pem', fingerprint: true, followSymlinks: false, onlyIfSuccessful: true
+            steps{
+                script{
+                    if (env.Action == 'apply') {
+                        archiveArtifacts artifacts: '*.pem', fingerprint: true, followSymlinks: false, onlyIfSuccessful: true
+                    }   
+                }
             }
         }
     }
