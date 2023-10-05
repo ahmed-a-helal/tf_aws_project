@@ -21,7 +21,7 @@ pipeline {
                     git branch: 'lab2', url: 'https://github.com/ahmed-a-helal/tf_aws_project.git'
                     sh ' terraform init '
                     sh ' terraform workspace select ${Environment} '
-                    sh 'terraform ${Action} --var-file  ${Environment}.tfvars'
+                    sh 'terraform ${Action} --var-file  ${Environment}.tfvars -auto-approve'
                 }
                 
             }
