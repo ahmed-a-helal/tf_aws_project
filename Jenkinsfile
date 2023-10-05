@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'Dockerslave'}
+    agent {label 'Jenkins_agent'}
     stages {
         stage('Terraform install') {
             steps {
@@ -11,7 +11,7 @@ pipeline {
             }
         }
         
-        stage("Credentials"){
+        stage("Terraform"){
             steps{
                 withCredentials([[
                     $class: 'AmazonWebServicesCredentialsBinding',
@@ -19,7 +19,9 @@ pipeline {
                     accessKeyVariable: 'AWS_ACCESS_KEY_ID',
                     secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                     git branch: 'lab2', url: 'https://github.com/ahmed-a-helal/tf_aws_project.git'
-                    sh ' terraform init && terraform workspace list '
+                    sh ' terraform init '
+                    sh ' terrform workspace select ${environment} '
+                    sh 'terraform ${action} --var-file  ${environment}.tfvars'
                 }
                 
             }
