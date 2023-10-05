@@ -20,7 +20,7 @@ pipeline {
                     secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                     git branch: 'lab2', url: 'https://github.com/ahmed-a-helal/tf_aws_project.git'
                     sh ' terraform init '
-                    sh ' terrform workspace select ${environment} '
+                    sh ' terraform workspace select ${environment} '
                     sh 'terraform ${action} --var-file  ${environment}.tfvars'
                 }
                 
